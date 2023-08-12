@@ -14,7 +14,7 @@ mainTStyle({
   );
 }
 
-ordinartTStyle({
+ordinaryTStyle({
   Color fColor = white,
   double fSize = 18.0,
 }) {

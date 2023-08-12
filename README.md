@@ -1,16 +1,9 @@
-# flight_booking
+<h1>Flight Booking </ha>
 
-A new Flutter project.
+<p> 
+this app allow you get offeres from trvaell companies and reserve your flight and pay for it , this app use Firebase phone Authentication to identify the client , also this app use stripe to pay for the ticket online . 
 
-## Getting Started
+== be sure all of this for test only not a real app to book from it <3
 
-This project is a starting point for a Flutter application.
+</p>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

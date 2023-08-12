@@ -9,8 +9,8 @@ Widget personalAvatar(BuildContext context) {
     onTap: () => Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => PersonalPage())),
     child: Container(
-        height: 50,
-        width: 50,
+        height: 40,
+        width: 40,
         decoration: BoxDecoration(
           color: white,
           shape: BoxShape.circle,

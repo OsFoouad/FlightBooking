@@ -1,10 +1,12 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, avoid_print
 
 import 'dart:math';
 
 import 'package:flight_booking/constants/colors.dart';
 import 'package:flight_booking/presentation/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../constants/ticket_provider_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,19 +16,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> ticketProvider = [
-    'assets/images/ticketProvider/egyptAir.jpg',
-    'assets/images/ticketProvider/flyEgypt.png',
-    'assets/images/ticketProvider/getAirways.jpg',
-    'assets/images/ticketProvider/skyScanner.jpeg',
-    'assets/images/ticketProvider/travelWizard.jpg',
-    'assets/images/ticketProvider/egyptAir.jpg',
-    'assets/images/ticketProvider/flyEgypt.png',
-    'assets/images/ticketProvider/getAirways.jpg',
-    'assets/images/ticketProvider/skyScanner.jpeg',
-    'assets/images/ticketProvider/travelWizard.jpg',
-  ];
-
   PageController? pageController;
   double viewPortFraction = 0.6;
   double? pageOffset = 1;
@@ -38,6 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
     pageController = PageController(
       initialPage: 1,
       viewportFraction: viewPortFraction,
+
+      // keepPage: false,
     )..addListener(() {
         setState(() {
           pageOffset = pageController!.page;
@@ -78,8 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
               // footer of screen
               Expanded(
                 child: Container(
-                  height: 400,
-                  width: 400,
+                  height: 350,
+                  width: 350,
                   child: Stack(
                     alignment: AlignmentDirectional.topCenter,
                     children: [
@@ -116,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: Transform.rotate(
                                       angle: angle * pi / 180,
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(24),
+                                        borderRadius: BorderRadius.circular(20),
                                         child: Container(
                                           width: 150,
                                           height: 150,
@@ -141,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                       Positioned(
-                        top: 300,
+                        top: 270,
                         child: Row(
                           children: [
                             ...List.generate(

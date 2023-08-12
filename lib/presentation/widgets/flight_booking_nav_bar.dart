@@ -42,7 +42,7 @@ class _FlightBookingNavBarState extends State<FlightBookingNavBar> {
                     child: Stack(
                       children: [
                         AnimatedContainer(
-                          duration: const Duration(milliseconds: 500),
+                          duration: const Duration(milliseconds: 100),
                           height: currentPage == index ? 24 : 0,
                           width: currentPage == index ? 24 : 0,
                           decoration:
