@@ -1,0 +1,13 @@
+{
+    "title" : "Hi, ",
+    "appBarWelcomeMsg" : "hope you a good day",
+    "randomTxt" : "This is a random text just for testing and you will not gain any useful information , it just for testing no more" , 
+    "settings" : "Settings", 
+    "account" : "Account",
+    "language" : "Language",
+    "theme" : "Theme",
+    "help" : "Help",
+    "shareApp" : "Share App",
+    "notification" : "Notifications",
+    "logout" : "Logout"
+}

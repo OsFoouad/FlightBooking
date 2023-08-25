@@ -1,12 +1,13 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, unused_import
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace,
 
 import 'package:flight_booking/constants/colors.dart';
 import 'package:flight_booking/constants/text_styles.dart';
 import 'package:flight_booking/presentation/screens/Login/widgets/build_btn.dart';
 import 'package:flight_booking/presentation/screens/Login/widgets/build_header.dart';
 import 'package:flight_booking/presentation/screens/Login/widgets/build_input_section.dart';
-import 'package:flight_booking/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../../widgets/flight_booking_nav_bar.dart';
 
 class PhoneAuthScreen extends StatefulWidget {
   const PhoneAuthScreen({super.key});
@@ -54,7 +55,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                 onTap: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(
                     builder: (context) {
-                      return HomeScreen();
+                      return FlightBookingNavBar();
                     },
                   ));
                 },

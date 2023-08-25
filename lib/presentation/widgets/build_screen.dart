@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/home_screen.dart';
 import '../screens/next_flights.dart';
-import '../screens/personal_page.dart';
+import '../screens/settings/personal_page.dart';
 import '../screens/reservation_screen.dart';
 
 Widget buildScreen(int index) {

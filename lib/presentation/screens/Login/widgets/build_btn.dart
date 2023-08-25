@@ -2,9 +2,8 @@
 
 import 'package:flight_booking/presentation/screens/Login/otp_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../constants/colors.dart';
-import '../../home_screen.dart';
+import '../../../widgets/flight_booking_nav_bar.dart';
 
 Widget buildBtn(BuildContext context, String screenName) {
   late String btnTxt;
@@ -27,7 +26,7 @@ Widget buildBtn(BuildContext context, String screenName) {
           case 'otpScreen':
             Navigator.of(context).push(MaterialPageRoute(
               builder: (context) {
-                return HomeScreen();
+                return FlightBookingNavBar();
               },
             ));
         }

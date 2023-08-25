@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flight_booking/constants/colors.dart';
-import 'package:flight_booking/presentation/screens/personal_page.dart';
+import 'package:flight_booking/presentation/screens/settings/personal_page.dart';
 import 'package:flutter/material.dart';
 
 Widget personalAvatar(BuildContext context) {

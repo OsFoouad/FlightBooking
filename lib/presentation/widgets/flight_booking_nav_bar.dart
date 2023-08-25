@@ -27,7 +27,7 @@ class _FlightBookingNavBarState extends State<FlightBookingNavBar> {
       backgroundColor: backColor,
       body: buildScreen(currentPage),
       bottomNavigationBar: Container(
-        height: 75,
+        height: 50,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(

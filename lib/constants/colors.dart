@@ -5,3 +5,4 @@ const Color white = Colors.white;
 const Color black = Colors.black87;
 const Color backColor = Color.fromARGB(255, 22, 20, 27);
 const Color myYellow = Colors.yellow;
+const Color myRed = Color.fromARGB(255, 247, 113, 104);

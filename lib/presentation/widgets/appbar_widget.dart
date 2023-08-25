@@ -1,6 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
 
+import 'dart:ui';
 import 'package:flight_booking/constants/text_styles.dart';
+import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/presentation/widgets/personal_avatar.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,6 @@ Widget flightBookingAppBar(BuildContext context) {
     child: AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      // centerTitle: true,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -21,7 +22,7 @@ Widget flightBookingAppBar(BuildContext context) {
             children: [
               RichText(
                 text: TextSpan(
-                    text: "Hi ",
+                    text: S.of(context).title,
                     style: mainTStyle(),
                     children: <TextSpan>[
                       TextSpan(
@@ -30,11 +31,8 @@ Widget flightBookingAppBar(BuildContext context) {
                       ),
                     ]),
               ),
-              const SizedBox(
-                height: 10,
-              ),
               Text(
-                "hope you a good day",
+                S.of(context).appBarWelcomeMsg,
                 style: ordinaryTStyle(),
               ),
             ],
