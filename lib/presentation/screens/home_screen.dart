@@ -1,12 +1,10 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, avoid_print, unused_import
-
 import 'dart:math';
-
 import 'package:flight_booking/constants/colors.dart';
 import 'package:flight_booking/constants/text_styles.dart';
 import 'package:flight_booking/generated/l10n.dart';
 import 'package:flight_booking/presentation/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../constants/ticket_provider_list.dart';
 
@@ -45,14 +43,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildHeader() {
-    return Container(
+    return SizedBox(
       height: 200,
       width: MediaQuery.of(context).size.width - 40,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/images/plane.gif"),
-        ),
-      ),
+      child: Lottie.asset('assets/images/planeLottieFile.json', repeat: true),
     );
   }
 
@@ -142,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         // extendBodyBehindAppBar: true,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100),
+          preferredSize: const Size.fromHeight(100),
           child: flightBookingAppBar(context),
         ),
         backgroundColor: backColor,
@@ -151,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 _buildHeader(),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 Container(
                   height: 350,
                   width: 350,
@@ -163,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30.0),
                   child: Card(
@@ -172,10 +166,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(16)),
                     child: Padding(
                       padding: const EdgeInsets.all(30.0),
-                      child: Text(S.of(context).randomTxt, style: mainTStyle()),
+                      child: Text(S.of(context).randomTxt,
+                          style: mainTStyle(fSize: 20)),
                     ),
                   ),
                 ),
+                const SizedBox(height: 20),
               ],
             ),
           ),

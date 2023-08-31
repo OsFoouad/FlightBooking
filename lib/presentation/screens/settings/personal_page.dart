@@ -4,18 +4,12 @@ import 'package:flight_booking/constants/colors.dart';
 import 'package:flight_booking/presentation/screens/settings/widgets/personal_card.dart';
 import 'package:flight_booking/presentation/screens/settings/widgets/settings_list.dart';
 import 'package:flutter/material.dart';
-
 import '../../../generated/l10n.dart';
 import '../../widgets/ordinary_appbar.dart';
 
-class PersonalPage extends StatefulWidget {
+class PersonalPage extends StatelessWidget {
   const PersonalPage({super.key});
 
-  @override
-  State<PersonalPage> createState() => _PersonalPageState();
-}
-
-class _PersonalPageState extends State<PersonalPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +26,10 @@ class _PersonalPageState extends State<PersonalPage> {
           children: [
             personalCard(context),
             SizedBox(height: 20),
-            Expanded(child: settingsList(context)),
+            Expanded(
+                child: settingsList(
+              context,
+            )),
           ],
         )),
       ),
