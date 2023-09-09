@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace,
 
-import 'package:flight_booking/constants/colors.dart';
-import 'package:flight_booking/constants/text_styles.dart';
+import 'package:flight_booking/theme/text_styles.dart';
 import 'package:flight_booking/presentation/screens/Login/widgets/build_btn.dart';
 import 'package:flight_booking/presentation/screens/Login/widgets/build_header.dart';
 import 'package:flight_booking/presentation/screens/Login/widgets/build_input_section.dart';
@@ -23,7 +22,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: backColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -33,7 +32,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                buildHeader('phoneNumber'),
+                buildHeader('phoneNumber', context),
                 SizedBox(height: 100),
                 buildInputSection(context, 'phoneNumber'),
                 SizedBox(height: 100),
@@ -61,7 +60,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                 },
                 child: Text(
                   "Skip this",
-                  style: ordinaryTStyle(),
+                  style: ordinaryTStyle(context: context),
                 ),
               )
             ],

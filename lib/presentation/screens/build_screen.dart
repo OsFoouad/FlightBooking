@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../screens/home_screen.dart';
-import '../screens/next_flights.dart';
-import '../screens/settings/personal_page.dart';
-import '../screens/reservation_screen.dart';
+import 'home_screen.dart';
+import 'next_flights.dart';
+import 'reservation_screen.dart';
+import 'settings/personal_page.dart';
 
 Widget buildScreen(int index) {
   switch (index) {

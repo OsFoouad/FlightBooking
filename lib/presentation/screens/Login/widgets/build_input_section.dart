@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
-import 'package:flight_booking/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -23,10 +22,10 @@ Widget buildInputSection(BuildContext context, String screenName) {
                 Icons.phone_android_rounded,
                 size: 20,
               ),
-              prefixIconColor: black,
-              suffixIconColor: black,
+              prefixIconColor: Theme.of(context).colorScheme.secondary,
+              suffixIconColor: Theme.of(context).colorScheme.secondary,
               filled: true,
-              fillColor: white,
+              fillColor: Colors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
               ),

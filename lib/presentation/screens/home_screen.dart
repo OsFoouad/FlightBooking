@@ -1,12 +1,13 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'dart:math';
-import 'package:flight_booking/constants/colors.dart';
-import 'package:flight_booking/constants/text_styles.dart';
-import 'package:flight_booking/generated/l10n.dart';
-import 'package:flight_booking/presentation/widgets/appbar_widget.dart';
+import '../../theme/text_styles.dart';
+import '../../generated/l10n.dart';
+import '../widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../constants/ticket_provider_list.dart';
+import '../../constants/lists.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -43,10 +44,13 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildHeader() {
-    return SizedBox(
-      height: 200,
-      width: MediaQuery.of(context).size.width - 40,
-      child: Lottie.asset('assets/images/planeLottieFile.json', repeat: true),
+    return Transform.rotate(
+      angle: 50,
+      child: SizedBox(
+        height: 200,
+        width: MediaQuery.of(context).size.width - 40,
+        child: Lottie.asset('assets/images/planeLottieFile.json', repeat: true),
+      ),
     );
   }
 
@@ -58,15 +62,16 @@ class _HomeScreenState extends State<HomeScreen> {
           ...List.generate(
             ticketProvider.length,
             (index) => AnimatedContainer(
-              duration: Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 200),
               margin: index == ticketProvider.length - 1
-                  ? EdgeInsets.only()
-                  : EdgeInsets.only(right: 15),
+                  ? const EdgeInsets.only()
+                  : const EdgeInsets.only(right: 15),
               height: currentTicketProvider == index ? 15 : 8,
               width: 8,
               decoration: BoxDecoration(
-                color:
-                    currentTicketProvider == index ? Colors.orange : babyBlue,
+                color: currentTicketProvider == index
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(15),
               ),
             ),
@@ -115,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           key: UniqueKey(),
                           fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) {
-                            return Icon(Icons.error);
+                            return const Icon(Icons.error);
                           },
                         ),
                       ),
@@ -139,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
           preferredSize: const Size.fromHeight(100),
           child: flightBookingAppBar(context),
         ),
-        backgroundColor: backColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: SingleChildScrollView(
           child: Center(
             child: Column(
@@ -166,8 +171,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(16)),
                     child: Padding(
                       padding: const EdgeInsets.all(30.0),
-                      child: Text(S.of(context).randomTxt,
-                          style: mainTStyle(fSize: 20)),
+                      child: Text(
+                        S.of(context).randomTxt,
+                        style: mainTStyle(context: context, fSize: 20),
+                      ),
                     ),
                   ),
                 ),

@@ -1,14 +1,15 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
-import 'package:flight_booking/constants/colors.dart';
-import 'package:flight_booking/constants/text_styles.dart';
+import 'package:flight_booking/theme/text_styles.dart';
 import 'package:flight_booking/generated/l10n.dart';
+import 'package:flight_booking/theme/theme_mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../main.dart';
 
-Widget settingsList(BuildContext context) {
+Widget settingsList(BuildContext context, ThemeModeProvider themeModeProvider) {
   List<String> settingsOptions = [
     S.of(context).account,
     S.of(context).language,
@@ -35,7 +36,7 @@ Widget settingsList(BuildContext context) {
         Container(
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-              color: Colors.white.withOpacity(.1),
+              color: Colors.white.withOpacity(.3),
               borderRadius: BorderRadius.all(Radius.circular(14))),
           width: MediaQuery.of(context).size.width,
           height: 75,
@@ -43,14 +44,14 @@ Widget settingsList(BuildContext context) {
             children: [
               Icon(
                 settingsIcons[0],
-                color: myYellow,
+                color: Theme.of(context).colorScheme.primary,
               ),
               SizedBox(
                 width: 50,
               ),
               Text(
                 settingsOptions[0],
-                style: ordinaryTStyle(fColor: myYellow),
+                style: ordinaryTStyle(context: context),
               )
             ],
           ),
@@ -58,42 +59,45 @@ Widget settingsList(BuildContext context) {
         SizedBox(
           height: 20,
         ),
+
         // Language item
         Slidable(
           startActionPane: ActionPane(motion: StretchMotion(), children: [
             // first action for Ar lang switch
             SlidableAction(
-                backgroundColor: babyBlue,
-                onPressed: (context) {
-                  MyApp.setLocale(context, Locale('ar'));
-                },
-                icon: Icons.language),
+              backgroundColor: Theme.of(context).colorScheme.background,
+              onPressed: (context) {
+                MyApp.setLocale(context, Locale('ar'));
+              },
+              icon: Icons.language_rounded,
+            ),
             // second action for En lang switch
             SlidableAction(
-              backgroundColor: Colors.deepPurple,
+              backgroundColor: Theme.of(context).colorScheme.background,
               onPressed: (context) {
                 MyApp.setLocale(context, Locale('en'));
               },
-              icon: Icons.language,
+              icon: Icons.abc,
             ),
           ]),
           child: Container(
             padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
-                color: Colors.white.withOpacity(.1),
+                color: Colors.white.withOpacity(.3),
                 borderRadius: BorderRadius.all(Radius.circular(14))),
             width: MediaQuery.of(context).size.width,
             height: 75,
             child: Row(
               children: [
                 Icon(
+                  // ToDo : ss
                   settingsIcons[1],
-                  color: myYellow,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 SizedBox(width: 50),
                 Text(
                   settingsOptions[1],
-                  style: ordinaryTStyle(fColor: myYellow),
+                  style: ordinaryTStyle(context: context),
                 )
               ],
             ),
@@ -102,41 +106,65 @@ Widget settingsList(BuildContext context) {
         SizedBox(
           height: 20,
         ),
+
         // theme item
-        Slidable(
-          endActionPane: ActionPane(motion: StretchMotion(), children: [
-            SlidableAction(
-                backgroundColor: babyBlue,
-                onPressed: (context) {},
-                icon: Icons.light_mode),
-            SlidableAction(
-              backgroundColor: Colors.deepPurple,
-              onPressed: (context) {},
-              icon: Icons.dark_mode,
-            ),
-          ]),
-          child: Container(
-            padding: EdgeInsets.all(15),
-            decoration: BoxDecoration(
-                color: Colors.white.withOpacity(.1),
-                borderRadius: BorderRadius.all(Radius.circular(14))),
-            width: MediaQuery.of(context).size.width,
-            height: 75,
-            child: Row(
-              children: [
-                Icon(
-                  settingsIcons[2],
-                  color: myYellow,
+        // * start of theme actions * //
+        Consumer<ThemeModeProvider>(
+          builder: (context, darkModeProvider, child) {
+            return Slidable(
+              startActionPane: ActionPane(
+                motion: StretchMotion(),
+                children: [
+                  SlidableAction(
+                    backgroundColor: Theme.of(context).colorScheme.background,
+                    onPressed: (context) {
+                      themeModeProvider.themeMode = ThemeMode.light;
+                    },
+                    icon: Icons.light_mode,
+                  ),
+                  SlidableAction(
+                    backgroundColor: Theme.of(context).colorScheme.background,
+                    onPressed: (context) {
+                      themeModeProvider.themeMode = ThemeMode.dark;
+                    },
+                    icon: Icons.dark_mode,
+                  ),
+                ],
+              ),
+              endActionPane: ActionPane(motion: StretchMotion(), children: [
+                SlidableAction(
+                  backgroundColor: Theme.of(context).colorScheme.background,
+                  onPressed: (context) {
+                    themeModeProvider.themeMode = ThemeMode.system;
+                  },
+                  icon: Icons.settings_applications_rounded,
                 ),
-                SizedBox(width: 50),
-                Text(
-                  settingsOptions[2],
-                  style: ordinaryTStyle(fColor: myYellow),
-                )
-              ],
-            ),
-          ),
-        ),
+              ]),
+              child: Container(
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(.3),
+                    borderRadius: BorderRadius.all(Radius.circular(14))),
+                width: MediaQuery.of(context).size.width,
+                height: 75,
+                child: Row(
+                  children: [
+                    Icon(
+                      settingsIcons[2],
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    SizedBox(width: 50),
+                    Text(
+                      settingsOptions[2],
+                      style: ordinaryTStyle(context: context),
+                    )
+                  ],
+                ),
+              ),
+            );
+          },
+        )
+        // * end of theme actions * //
       ],
     ),
   );

@@ -2,7 +2,7 @@
 
 import 'package:flight_booking/presentation/screens/Login/otp_screen.dart';
 import 'package:flutter/material.dart';
-import '../../../../constants/colors.dart';
+
 import '../../../widgets/flight_booking_nav_bar.dart';
 
 Widget buildBtn(BuildContext context, String screenName) {
@@ -35,7 +35,7 @@ Widget buildBtn(BuildContext context, String screenName) {
           backgroundColor: MaterialStateProperty.all<Color>(Colors.orange)),
       child: Text(
         btnTxt,
-        style: TextStyle(color: black),
+        style: TextStyle(color: Theme.of(context).colorScheme.primary),
       ),
     ),
   );

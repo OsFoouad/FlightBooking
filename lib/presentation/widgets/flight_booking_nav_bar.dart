@@ -1,7 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace
 
-import 'package:flight_booking/constants/colors.dart';
-import 'package:flight_booking/presentation/widgets/build_screen.dart';
+import 'package:flight_booking/presentation/screens/build_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +23,7 @@ class _FlightBookingNavBarState extends State<FlightBookingNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: buildScreen(currentPage),
       bottomNavigationBar: Container(
         height: 50,
@@ -57,8 +56,11 @@ class _FlightBookingNavBarState extends State<FlightBookingNavBar> {
                         Icon(
                           bottomIcons[index],
                           color: currentPage == index
-                              ? Colors.white
-                              : Colors.white.withOpacity(.3),
+                              ? Theme.of(context).colorScheme.primary
+                              : Theme.of(context)
+                                  .colorScheme
+                                  .primary
+                                  .withOpacity(.2),
                         ),
                       ],
                     ),

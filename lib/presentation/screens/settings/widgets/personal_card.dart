@@ -1,14 +1,14 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:flight_booking/constants/text_styles.dart';
+import 'package:flight_booking/theme/text_styles.dart';
 import 'package:flutter/material.dart';
 
 Widget personalCard(BuildContext context) {
   return Container(
     width: MediaQuery.of(context).size.width,
-    height: 150,
+    height: 200,
     decoration: BoxDecoration(
-      color: Colors.white.withOpacity(.1),
+      color: Theme.of(context).colorScheme.primary.withOpacity(.2),
       shape: BoxShape.rectangle,
       borderRadius: BorderRadius.all(
         Radius.circular(16),
@@ -33,14 +33,14 @@ Widget personalCard(BuildContext context) {
             children: [
               Text(
                 "Osama Fouad",
-                style: mainTStyle(),
+                style: mainTStyle(context: context),
               ),
               SizedBox(
                 height: 10,
               ),
               Text(
                 "01019541662",
-                style: ordinaryTStyle(),
+                style: ordinaryTStyle(context: context),
               )
             ],
           )

@@ -1,25 +1,24 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_import
 
-import 'package:flight_booking/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 mainTStyle({
-  Color fColor = white,
+  required BuildContext context,
   double fSize = 24.0,
 }) {
   return TextStyle(
-    color: fColor,
+    color: Theme.of(context).colorScheme.primary,
     fontSize: fSize,
     fontWeight: FontWeight.bold,
   );
 }
 
 ordinaryTStyle({
-  Color fColor = white,
+  required BuildContext context,
   double fSize = 18.0,
 }) {
   return TextStyle(
-    color: fColor,
+    color: Theme.of(context).colorScheme.primary,
     fontSize: fSize,
     fontWeight: FontWeight.w600,
   );
